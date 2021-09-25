@@ -20,7 +20,9 @@ const checkLength = function (currentString, maxLength) {
 
   if (currentString.length < maxLength) {
     return true;
-  }; else {return false}
-}
+  } else {
+    return false;
+  }
+};
 
-console.log(checkLength('Привет', 140));
+checkLength('Привет', 140);
