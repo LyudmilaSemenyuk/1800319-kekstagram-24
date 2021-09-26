@@ -15,12 +15,7 @@ const getRandomInt = function(min,max) {
 
 //Функция для проверки максимальной длины строки
 const checkLength = function (currentString, maxLength) {
-
-  if (currentString.length < maxLength) {
-    return true;
-  } else {
-    return false;
-  }
+  return currentString.length < maxLength;
 };
 
 checkLength('Привет', 140);
