@@ -1,19 +1,17 @@
-//Функции, возвращающие случайное целое число из переданного диапазона включительно (Источник: https://developer.mozilla.org/)
+//Функция, возвращающая случайное целое число из переданного диапазона включительно
 const getRandomInt = function(min,max) {
   min = Math.ceil(min);
   max = Math.floor(max);
+  if (min===max) {
+    return min;
+  }
+  if (max<min) {
+    throw new Error('Значение "до" должно быть больше значения "от"');
+  }
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-(getRandomInt(1,100));//Максимум и минимум включаются
-
-const getRandomIntNew = function(min,max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-};
-
-getRandomIntNew(10,50); //Максимум не включается, минимум включается
+(getRandomInt(1,100));
 
 //Функция для проверки максимальной длины строки
 const checkLength = function (currentString, maxLength) {
