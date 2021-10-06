@@ -1,4 +1,5 @@
-//Функция, возвращающая случайное целое число из переданного диапазона включительно
+
+// //Функция, возвращающая случайное целое число из переданного диапазона включительно
 const getRandomInt = function(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -13,12 +14,13 @@ const getRandomInt = function(min, max) {
 
 getRandomInt(0,100);
 
-//Функция для проверки максимальной длины строки
-const checkLength = function (currentString, maxLength) {
-  return currentString.length < maxLength;
-};
+// //Функция для проверки максимальной длины строки
+// const checkLength = function (currentString, maxLength) {
+//   return currentString.length < maxLength;
+// };
 
-checkLength('Привет', 140);
+// checkLength('Привет', 140);
+
 
 // module4-task1
 
@@ -53,20 +55,27 @@ const COMMENTS_NAME = [
   'Алиса',
 ];
 
+const getComments = (numberOfComments) => {
+  const comments = [];
+  for (let num = 0; num < numberOfComments; num++) {
+    comments.push({
+      id: getRandomInt(1, 25),
+      avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
+      message: COMMENTS_MESSAGE[getRandomInt(0, COMMENTS_MESSAGE.length - 1)],
+      name: COMMENTS_NAME[getRandomInt(0, COMMENTS_MESSAGE.length - 1)],
+    });
+  }
+  return comments;
+};
+
 const createPost = (index) => ({
   id: index,
   url: `photos/${index}.jpg`,
   description: PHOTO_DESCRIPTION[getRandomInt(0, PHOTO_DESCRIPTION.length - 1)],
   likes: getRandomInt(15, 200),
-  comments: [
-    {
-      id: getRandomInt(1, 25),
-      avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
-      message: COMMENTS_MESSAGE[getRandomInt(0, COMMENTS_MESSAGE.length - 1)],
-      name: COMMENTS_NAME[getRandomInt(0, COMMENTS_MESSAGE.length - 1)],
-    },
-  ],
+  comments: getComments(getRandomInt(1, 100)),
 });
+
 
 const POSTS = [];
 
