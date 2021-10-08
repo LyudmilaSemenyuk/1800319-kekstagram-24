@@ -55,11 +55,12 @@ const COMMENTS_NAME = [
   'Алиса',
 ];
 
+
 const getComments = (numberOfComments) => {
   const comments = [];
   for (let num = 0; num < numberOfComments; num++) {
     comments.push({
-      id: getRandomInt(1, 25),
+      id: num,
       avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
       message: COMMENTS_MESSAGE[getRandomInt(0, COMMENTS_MESSAGE.length - 1)],
       name: COMMENTS_NAME[getRandomInt(0, COMMENTS_MESSAGE.length - 1)],
