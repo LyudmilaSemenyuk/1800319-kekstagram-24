@@ -8,6 +8,7 @@ const createComment = function (commentData) {
   return newComment;
 };
 
+
 const addingEventListener = function (newPicture, picture){
   const a = newPicture.querySelector('.picture');
   const fullScreenFoto = document.querySelector('.big-picture');
@@ -19,9 +20,12 @@ const addingEventListener = function (newPicture, picture){
     fullScreenFoto.querySelector('.big-picture__img img').src = picture.url;
     fullScreenFoto.querySelector('.likes-count').textContent = picture.likes;
     fullScreenFoto.querySelector('.comments-count').textContent = picture.comments.length;
+    fullScreenFoto.querySelector('.social__caption').textContent = picture.description;
     const commentsList = document.querySelector('.social__comments');
-    for (let i = 0; i < picture.comments.length; i++) {
-      commentsList.appendChild(createComment(picture.comments[i]));
+    if (document.querySelector('.social__comments').children.length === 0) {
+      for (let i = 0; i < picture.comments.length; i++) {
+        commentsList.appendChild(createComment(picture.comments[i]));
+      }
     }
     document.querySelector('body').classList.add('modal-open');
   });
