@@ -22,10 +22,9 @@ const addingEventListener = function (newPicture, picture){
     fullScreenFoto.querySelector('.comments-count').textContent = picture.comments.length;
     fullScreenFoto.querySelector('.social__caption').textContent = picture.description;
     const commentsList = document.querySelector('.social__comments');
-    if (document.querySelector('.social__comments').children.length === 0) {
-      for (let i = 0; i < picture.comments.length; i++) {
-        commentsList.appendChild(createComment(picture.comments[i]));
-      }
+    commentsList.innerHTML = '';
+    for (let i = 0; i < picture.comments.length; i++) {
+      commentsList.appendChild(createComment(picture.comments[i]));
     }
     document.querySelector('body').classList.add('modal-open');
   });
