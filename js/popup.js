@@ -7,11 +7,12 @@ pictureCancelButton.addEventListener('click', (evt) => {
   document.querySelector('body').classList.remove('modal-open');
 });
 
-window.addEventListener('keydown', (evt) => {
+document.addEventListener('keydown', (evt) => {
   evt.preventDefault();
   if(evt.key === 'Escape') {
     bigPictureSection.classList.add('hidden');
     document.querySelector('body').classList.remove('modal-open');
+    document.removeEventListener('keydown');
   }
 });
 

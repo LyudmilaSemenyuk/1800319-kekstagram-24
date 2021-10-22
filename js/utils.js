@@ -13,6 +13,8 @@ const getRandomInt = function(min, max) {
 };
 
 getRandomInt(0,100);
+
+
 export {getRandomInt};
 
 // //Функция для проверки максимальной длины строки
