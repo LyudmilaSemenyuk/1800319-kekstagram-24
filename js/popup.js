@@ -5,13 +5,5 @@ pictureCancelButton.addEventListener('click', (evt) => {
   evt.preventDefault();
   bigPictureSection.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
+  window.removeEventListener('keydown');
 });
-
-window.addEventListener('keydown', (evt) => {
-  evt.preventDefault();
-  if(evt.key === 'Escape') {
-    bigPictureSection.classList.add('hidden');
-    document.querySelector('body').classList.remove('modal-open');
-  }
-});
-
